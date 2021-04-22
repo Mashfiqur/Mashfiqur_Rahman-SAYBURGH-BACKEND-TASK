@@ -12,7 +12,7 @@ POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-  "email": "arham@gmail.com",
+  "email": "mashfiqurrr@gmail.com",
   "password": "sayburg"
 }
 
@@ -37,7 +37,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/blog
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaGFtQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzNzdiZmUwNDQ3MDhhOGQ2ODA3NyIsImlhdCI6MTYxOTA4MTk1MywiZXhwIjoxNjE5MDg1NTUzfQ.bWV8Fs-sOYXvFd-VSOrH__WI0y3nABF4Srxm3VCl2UA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODE3ZGEwZDVlOGI4MDVjNDQ2OGExMSIsImlhdCI6MTYxOTA5OTQ2MywiZXhwIjoxNjE5MTAzMDYzfQ.ejqQY3ADwPoQC3JRX5rpyCkD6BZ9ixdyOnJqYd104XM
 
 
 

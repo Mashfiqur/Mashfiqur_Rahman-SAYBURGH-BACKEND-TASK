@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
+
 const userController = {
 
     signup: (req, res, next) => {
@@ -80,11 +81,15 @@ const userController = {
                     const accessToken = jwt.sign(userinfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
                     const refreshToken = jwt.sign(userinfo, process.env.REFRESH_TOKEN_SECRET); // Check https://jwt.io/
 
-                        return res.status(200).json({
-                            message: "Auth Successful!",
-                            access_token: accessToken,
-                            refresh_token: refreshToken
-                        });
+                    res.cookie('refresh_token',refreshToken, {
+                        maxAge: 3600000, //seconds
+                        httpOnly: true
+                    });
+                    return res.status(200).json({
+                        message: "Auth Successful!",
+                        access_token: accessToken,
+                        refresh_token: refreshToken
+                    });
                     
                      
                 }
@@ -105,7 +110,7 @@ const userController = {
         
     },
     token: (req, res) => {
-        const refreshToken = req.body.token
+        const refreshToken = req.cookies.refresh_token;
         if (refreshToken == null) return res.sendStatus(401)
         User.findOne({ refresh_token:refreshToken })
         .exec()

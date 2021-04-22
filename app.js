@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 
@@ -14,7 +15,7 @@ const userRoutes = require('./api/routes/users');
 const blogRoutes = require('./api/routes/blogs');
 const commentRoutes = require('./api/routes/comments');
 
-
+app.use(cookieParser())
 app.use(morgan('dev'));
 app.use(express.json());
 
