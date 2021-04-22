@@ -1,0 +1,78 @@
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{
+  "name": "Md.Mashfiqur Rahman",
+  "email": "mashfiqurrr@gmail.com",
+  "password": "sayburg"
+}
+
+###
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+  "email": "arham@gmail.com",
+  "password": "sayburg"
+}
+
+###
+GET http://localhost:3000/user/new_access_token
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODA4NGUxMGQ1MTY5MGVhMDQ4MGI2MiIsImlhdCI6MTYxOTAzNTg5NCwiZXhwIjoxNjE5MDQ2Njk0fQ.jtu-JLbVWBtcUD4dnhSjzAYXwbFuzd5E3kwhGQruZTY"
+}
+
+###
+POST http://localhost:3000/blog
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaGFtQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzNzdiZmUwNDQ3MDhhOGQ2ODA3NyIsImlhdCI6MTYxOTA4MTQwMCwiZXhwIjoxNjE5MDg1MDAwfQ.bKFzm-bcOWmB79pKNZ8xilLxuHr23J4oXylmqBoeUPo
+Content-Type: application/json
+
+{
+  "title": "Beyond Grammar and Spelling",
+  "description": "From grammar and spelling to style and tone, Grammarly helps you eliminate errors and find the perfect words to express yourself.",
+  "tags": "6081377bfe044708a8d68077,60813794fe044708a8d68079,608137a0fe044708a8d6807a"
+}
+
+###
+GET http://localhost:3000/blog
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaGFtQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzNzdiZmUwNDQ3MDhhOGQ2ODA3NyIsImlhdCI6MTYxOTA4MTk1MywiZXhwIjoxNjE5MDg1NTUzfQ.bWV8Fs-sOYXvFd-VSOrH__WI0y3nABF4Srxm3VCl2UA
+
+
+
+###
+GET  http://localhost:3000/blog/608138c7fe044708a8d6807e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzMThkMDAxYmRmMWExYzNhMDVlMSIsImlhdCI6MTYxOTA3OTg3NiwiZXhwIjoxNjE5MDgzNDc2fQ.FC6qRm7SwP3aLZlQrb2hqABl6LlBoc68Pzlo8PHNWck
+
+
+###
+PATCH  http://localhost:3000/blog/608138c7fe044708a8d6807e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaGFtQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzNzdiZmUwNDQ3MDhhOGQ2ODA3NyIsImlhdCI6MTYxOTA4MTk1MywiZXhwIjoxNjE5MDg1NTUzfQ.bWV8Fs-sOYXvFd-VSOrH__WI0y3nABF4Srxm3VCl2UA
+Content-Type: application/json 
+
+{
+  "title": "Beyond Grammar and Spelling",
+  "description": "From grammar and spelling to style and tone, Grammarly helps you eliminate errors and find the perfect words to express yourself.",
+  "tags": "6081377bfe044708a8d68077,60813794fe044708a8d68079,608137a0fe044708a8d6807a"
+}
+
+
+
+
+###
+DELETE  http://localhost:3000/blog/608138c7fe044708a8d6807e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzMThkMDAxYmRmMWExYzNhMDVlMSIsImlhdCI6MTYxOTA3OTg3NiwiZXhwIjoxNjE5MDgzNDc2fQ.FC6qRm7SwP3aLZlQrb2hqABl6LlBoc68Pzlo8PHNWck
+
+
+
+
+###
+POST http://localhost:3000/comment
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzMThkMDAxYmRmMWExYzNhMDVlMSIsImlhdCI6MTYxOTA3OTg3NiwiZXhwIjoxNjE5MDgzNDc2fQ.FC6qRm7SwP3aLZlQrb2hqABl6LlBoc68Pzlo8PHNWck
+Content-Type: application/json
+
+{
+  "remark": "Well done! This is a nice blog.",
+  "blogId": "60813827fe044708a8d6807b"
+}
