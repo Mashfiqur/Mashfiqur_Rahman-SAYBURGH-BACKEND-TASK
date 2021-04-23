@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Blog = require('../models/blog');
+const Comment = require('../models/comment');
+
 
 const blogController = {
 
@@ -49,10 +51,26 @@ const blogController = {
         });
     },
     get_all_blogs: (req, res, next) => {
-
+    
         Blog.find({owner_id: req.userData.userId})
-        .populate('tags','name')
-        .populate('comments','remark')
+        .populate([
+            {
+                path: 'tags',
+                model: 'User',
+                select: 'name',
+            },
+            {
+                path: 'comments',
+                model: 'Comment',
+                select: 'remark',
+                populate: {
+                    path: 'owner_id',
+                    model: 'User',
+                    select: 'name'
+                }
+
+            }
+        ])
         .exec()
         .then((doc)=>{
             const count_blogs = doc.length;
@@ -82,6 +100,24 @@ const blogController = {
     get_blog:(req, res, next) => {
 
         Blog.findOne({_id:req.params.blogId, owner_id: req.userData.userId})
+        .populate([
+            {
+                path: 'tags',
+                model: 'User',
+                select: 'name',
+            },
+            {
+                path: 'comments',
+                model: 'Comment',
+                select: 'remark',
+                populate: {
+                    path: 'owner_id',
+                    model: 'User',
+                    select: 'name'
+                }
+
+            }
+        ])
         .exec()
         .then((doc)=>{
             if(doc != null){
@@ -112,7 +148,12 @@ const blogController = {
       Blog.findOne({_id:req.params.blogId})
         .exec()
         .then(resultDoc =>{
-            if(resultDoc.owner_id != req.userData.userId){
+            if(resultDoc == null){
+                res.status(404).json({
+                    message: "This id does not associated with any blog!"
+                });
+            }
+            else if(resultDoc.owner_id != req.userData.userId){
                 res.status(403).json({
                     message: "You don't have access to remove this blog!"
                 });
@@ -183,37 +224,51 @@ const blogController = {
         Blog.findOne({_id:req.params.blogId})
         .exec()
         .then(resultDoc =>{
-            if(resultDoc.owner_id != req.userData.userId){
+            if(resultDoc == null){
+                res.status(404).json({
+                    message: "This id does not associated with any blog!"
+                });
+            }
+            else if(resultDoc.owner_id != req.userData.userId){
                 res.status(403).json({
                     message: "You don't have access to remove this blog!"
                 });
             }
             else{
-                Blog.findOne({_id:req.params.blogId, owner_id: req.userData.userId})
-                .remove()
-                .exec()
-                .then((doc)=>{
-                  
-                      if(doc.deletedCount != 0){
-                          res.status(200).json({
-                              message: "Blog has been removed successfully!"
-                          });
-                      }
-                      else{
-                          res.status(404).json({
-                              message: "Not Found!"
-                          });
-                      }
+                //Can be used Promiss.all
+                Comment.deleteMany({_id: { $in: resultDoc.comments}}).exec()
+                .then(com =>{
+                    Blog.deleteOne({_id:req.params.blogId, owner_id: req.userData.userId})
+                    .exec()
+                    .then((doc)=>{
                       
-                  
-                  
-              })
-              .catch((err)=>{
-                  res.status(500).json({
-                      message: "Internal Server Error!",
-                      error : err
+                          if(doc.deletedCount != 0){
+                              res.status(200).json({
+                                  message: "Blog has been removed successfully!"
+                              });
+                          }
+                          else{
+                              res.status(404).json({
+                                  message: "Not Found!"
+                              });
+                          }
+                          
+                      
+                      
+                  })
+                  .catch((err)=>{
+                      res.status(500).json({
+                          message: "Internal Server Error!",
+                          error : err
+                      });
                   });
-              });
+                }).catch((err)=>{
+                    res.status(500).json({
+                        message: "Internal Server Error!",
+                        error : err
+                    });
+                });
+            
             }
         })
         .catch((err)=>{

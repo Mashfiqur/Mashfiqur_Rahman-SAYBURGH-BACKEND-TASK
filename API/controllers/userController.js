@@ -87,8 +87,7 @@ const userController = {
                     });
                     return res.status(200).json({
                         message: "Auth Successful!",
-                        access_token: accessToken,
-                        refresh_token: refreshToken
+                        access_token: accessToken
                     });
                     
                      
@@ -132,7 +131,7 @@ const userController = {
         })
         .catch((err)=>{
             return res.status(403).json({
-                message: "This refresh token does not exist in database!",
+                message: "This refresh token does not match with any of our user information!",
                 error: err
             });
         })

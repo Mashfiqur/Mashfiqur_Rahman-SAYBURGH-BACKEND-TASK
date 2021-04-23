@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
+
 //Database Connection
 mongoose.connect('mongodb://localhost:27017/PostMedia',{useNewUrlParser:true, useUnifiedTopology:true});
 

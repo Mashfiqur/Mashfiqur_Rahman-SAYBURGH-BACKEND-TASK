@@ -18,41 +18,37 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/user/new_access_token
-Content-Type: application/json
 
-{
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODA4NGUxMGQ1MTY5MGVhMDQ4MGI2MiIsImlhdCI6MTYxOTAzNTg5NCwiZXhwIjoxNjE5MDQ2Njk0fQ.jtu-JLbVWBtcUD4dnhSjzAYXwbFuzd5E3kwhGQruZTY"
-}
 
 ###
 POST http://localhost:3000/blog
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaGFtQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzNzdiZmUwNDQ3MDhhOGQ2ODA3NyIsImlhdCI6MTYxOTA4MTQwMCwiZXhwIjoxNjE5MDg1MDAwfQ.bKFzm-bcOWmB79pKNZ8xilLxuHr23J4oXylmqBoeUPo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsImlhdCI6MTYxOTE1NTM4MSwiZXhwIjoxNjE5MTY2MTgxfQ.zFHuRs1q_pvI_lOl4QvWOVpn6BfW86xCuR2IhucUi-w
 Content-Type: application/json
 
 {
-  "title": "Beyond Grammar and Spelling",
+  "title": "Beyond Grammar % Spelling",
   "description": "From grammar and spelling to style and tone, Grammarly helps you eliminate errors and find the perfect words to express yourself.",
-  "tags": "6081377bfe044708a8d68077,60813794fe044708a8d68079,608137a0fe044708a8d6807a"
+  "tags": "60823fa5441f512db8944204"
 }
 
 ###
 GET http://localhost:3000/blog
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODE3ZGEwZDVlOGI4MDVjNDQ2OGExMSIsImlhdCI6MTYxOTA5OTQ2MywiZXhwIjoxNjE5MTAzMDYzfQ.ejqQY3ADwPoQC3JRX5rpyCkD6BZ9ixdyOnJqYd104XM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsImlhdCI6MTYxOTE1NTM4MSwiZXhwIjoxNjE5MTY2MTgxfQ.zFHuRs1q_pvI_lOl4QvWOVpn6BfW86xCuR2IhucUi-w
 
 
 
 ###
-GET  http://localhost:3000/blog/608138c7fe044708a8d6807e
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzMThkMDAxYmRmMWExYzNhMDVlMSIsImlhdCI6MTYxOTA3OTg3NiwiZXhwIjoxNjE5MDgzNDc2fQ.FC6qRm7SwP3aLZlQrb2hqABl6LlBoc68Pzlo8PHNWck
+GET  http://localhost:3000/blog/608259d1ffef5609f497ef24
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsImlhdCI6MTYxOTE1NTM4MSwiZXhwIjoxNjE5MTY2MTgxfQ.zFHuRs1q_pvI_lOl4QvWOVpn6BfW86xCuR2IhucUi-w
 
 
 ###
-PATCH  http://localhost:3000/blog/608138c7fe044708a8d6807e
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaGFtQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzNzdiZmUwNDQ3MDhhOGQ2ODA3NyIsImlhdCI6MTYxOTA4MTk1MywiZXhwIjoxNjE5MDg1NTUzfQ.bWV8Fs-sOYXvFd-VSOrH__WI0y3nABF4Srxm3VCl2UA
+PATCH  http://localhost:3000/blog/60825accffef5609f497ef27
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsImlhdCI6MTYxOTE1NTM4MSwiZXhwIjoxNjE5MTY2MTgxfQ.zFHuRs1q_pvI_lOl4QvWOVpn6BfW86xCuR2IhucUi-w
 Content-Type: application/json 
 
 {
-  "title": "Beyond Grammar and Spelling",
+  "title": "Earn Money",
   "description": "From grammar and spelling to style and tone, Grammarly helps you eliminate errors and find the perfect words to express yourself.",
   "tags": "6081377bfe044708a8d68077,60813794fe044708a8d68079,608137a0fe044708a8d6807a"
 }
@@ -61,18 +57,20 @@ Content-Type: application/json
 
 
 ###
-DELETE  http://localhost:3000/blog/608138c7fe044708a8d6807e
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzMThkMDAxYmRmMWExYzNhMDVlMSIsImlhdCI6MTYxOTA3OTg3NiwiZXhwIjoxNjE5MDgzNDc2fQ.FC6qRm7SwP3aLZlQrb2hqABl6LlBoc68Pzlo8PHNWck
+DELETE  http://localhost:3000/blog/60825accffef5609f497ef27
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsImlhdCI6MTYxOTE1NTM4MSwiZXhwIjoxNjE5MTY2MTgxfQ.zFHuRs1q_pvI_lOl4QvWOVpn6BfW86xCuR2IhucUi-w
 
 
 
 
 ###
 POST http://localhost:3000/comment
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjYwODEzMThkMDAxYmRmMWExYzNhMDVlMSIsImlhdCI6MTYxOTA3OTg3NiwiZXhwIjoxNjE5MDgzNDc2fQ.FC6qRm7SwP3aLZlQrb2hqABl6LlBoc68Pzlo8PHNWck
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hc2hmaXF1cnJyQGdtYWlsLmNvbSIsImlhdCI6MTYxOTE1NTM4MSwiZXhwIjoxNjE5MTY2MTgxfQ.zFHuRs1q_pvI_lOl4QvWOVpn6BfW86xCuR2IhucUi-w
 Content-Type: application/json
 
 {
-  "remark": "Well done! This is a nice blog.",
-  "blogId": "60813827fe044708a8d6807b"
+  "remark": "wooh! This is a nice blog.",
+  "blogId": "60825accffef5609f497ef27"
 }
+###
+
