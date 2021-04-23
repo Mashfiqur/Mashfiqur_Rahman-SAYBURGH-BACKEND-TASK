@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
+
 //Database Connection
 mongoose.connect('mongodb://localhost:27017/PostMedia',{useNewUrlParser:true, useUnifiedTopology:true});
 
@@ -14,7 +16,7 @@ const userRoutes = require('./api/routes/users');
 const blogRoutes = require('./api/routes/blogs');
 const commentRoutes = require('./api/routes/comments');
 
-
+app.use(cookieParser())
 app.use(morgan('dev'));
 app.use(express.json());
 
